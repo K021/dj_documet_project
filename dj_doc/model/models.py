@@ -12,8 +12,9 @@ class Person(models.Model):
 
 
 class Manufacturer(models.Model):
-    pass
+    name = models.CharField(max_length=50)
 
 
 class Car(models.Model):
+    name = models.CharField(max_length=50, blank=True)
     manufacturer = models.ForeignKey(Manufacturer, on_delete=models.CASCADE)
