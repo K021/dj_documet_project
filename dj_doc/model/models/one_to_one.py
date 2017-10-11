@@ -26,7 +26,7 @@ class Restaurant(models.Model):
     serves_pizza = models.BooleanField(default=False)
 
     def __str__(self):
-        return f'Restaurant:{self.name}'
+        return f'Restaurant in {self.place.name}'
 
 
 class Waiter(models.Model):

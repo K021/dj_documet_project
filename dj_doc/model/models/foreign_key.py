@@ -27,5 +27,11 @@ class User(models.Model):
     name = models.CharField(max_length=30)
     teacher = models.ForeignKey('self', on_delete=models.SET_NULL, null=True, blank=True)
 
+    def save(self, *args, **kwargs):
+        if self == self.teacher:
+            return
+        # python3 에서는 그냥 super()로 가능하다.
+        super(User, self).save(*args, **kwargs)
+
     def __str__(self):
         return self.name
