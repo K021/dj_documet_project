@@ -20,6 +20,8 @@ class Author(models.Model):
     email = models.EmailField(blank=True)
 
     def __str__(self):
+        if self.email:
+            return f'{self.name}, Email:{self.email}'
         return self.name
 
 
